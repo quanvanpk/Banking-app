@@ -1,8 +1,11 @@
 package demo.quanvan.banking.controller;
 
 import demo.quanvan.banking.entity.TransactionType;
+import demo.quanvan.banking.service.TransactionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/transaction-types")
