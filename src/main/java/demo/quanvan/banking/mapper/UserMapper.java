@@ -9,7 +9,7 @@ public class UserMapper {
         return new User(
                 userDto.getId(),
                 userDto.getUsername(),
-                userDto.getPassword(),
+                null,
                 userDto.getEmail(),
                 RoleMapper.mapToRole(userDto.getRole())
         );
@@ -19,7 +19,6 @@ public class UserMapper {
         return new UserDto(
                 user.getId(),
                 user.getUsername(),
-                user.getPassword(),
                 user.getEmail(),
                 RoleMapper.mapToRoleDto(user.getRole())
         );

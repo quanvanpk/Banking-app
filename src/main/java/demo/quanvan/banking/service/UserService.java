@@ -1,19 +1,23 @@
 package demo.quanvan.banking.service;
 
+import demo.quanvan.banking.dto.UserDto;
 import demo.quanvan.banking.entity.User;
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
-    List<User> getAllUsers();
+    List<UserDto> getAllUsers();
 
-    User getUserById(Long id);
+    UserDto getUserById(Long id);
 
-    User createUser(User user);
+    UserDto createUser(User user);
 
-    User updateUser(Long id, User user);
+    UserDto updateUser(Long id, User user);
 
     void deleteUser(Long id);
+
+    Optional<User> findByUsername(String username);
 }
 
 
