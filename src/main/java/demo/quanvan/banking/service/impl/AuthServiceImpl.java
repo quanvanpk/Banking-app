@@ -49,8 +49,9 @@ public class AuthServiceImpl implements AuthService {
         Optional<User> optionalUser = userRepository.findByUsername(loginRequest.getUsername());
 
         if (optionalUser.isPresent() && passwordEncoder.matches(loginRequest.getPassword(), optionalUser.get().getPassword())) {
-            String token = jwtUtil.generateToken(loginRequest.getUsername());
-            return new JwtResponse(optionalUser.get().getUsername(), token);
+            User user = optionalUser.get();
+            String token = jwtUtil.generateToken(user.getUsername(), user.getRole().getName());
+            return new JwtResponse(user.getUsername(), token);
         }
 
         throw new RuntimeException("Invalid username or password");
